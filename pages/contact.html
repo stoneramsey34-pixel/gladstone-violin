@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Faith Gladstone, Violinist</title>
+<title>Contact | Gladstone Violin</title>
 <meta name="description" content="Get in touch with Faith Gladstone for wedding and event bookings or violin lesson inquiries in Alpharetta and North Atlanta, Georgia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../css/style.css">
@@ -13,7 +13,7 @@
 
 <header class="site-header is-static">
   <div class="container header-inner">
-    <a class="site-brand" href="../index.html">Faith Gladstone<span>Violinist</span></a>
+    <a class="site-brand" href="../index.html">Gladstone Violin<span>Faith Gladstone, Violinist</span></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <svg width="26" height="20" viewBox="0 0 26 20" fill="none" aria-hidden="true">
         <path d="M0 1H26" stroke="currentColor" stroke-width="2"/>
@@ -29,7 +29,6 @@
         <li><a href="about.html">About</a></li>
         <li><a href="repertoire.html">Repertoire</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
@@ -42,8 +41,8 @@
   <section style="padding-bottom: 0;">
     <div class="container section-intro">
       <span class="eyebrow-label">Contact</span>
-      <h1>Let's talk about your event or lessons.</h1>
-      <p>Fill out the form below with a few details, and I'll get back to you as soon as I can.</p>
+      <h1>Message Me</h1>
+      <p>I'd love to hear from you! Whether you're booking for your big day, have a question, or just want to say hi — send a note and I'll get right back to you.</p>
     </div>
   </section>
 
@@ -57,33 +56,23 @@
         -->
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required autocomplete="name">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
           </div>
           <div class="form-field">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email">
           </div>
           <div class="form-field">
-            <label for="event-type">Event Type / Reason for Inquiry</label>
-            <select id="event-type" name="event-type">
-              <option value="wedding">Wedding</option>
-              <option value="private-event">Private Event</option>
-              <option value="corporate-event">Corporate Event</option>
-              <option value="lessons">Violin Lessons</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="event-date">Event Date (if applicable)</label>
-            <input type="date" id="event-date" name="event-date">
-          </div>
-          <div class="form-field">
             <label for="message">Message</label>
             <textarea id="message" name="message" required placeholder="Tell me a bit about your event or what you're looking for..."></textarea>
           </div>
           <button class="btn btn-primary" type="submit">Send Message</button>
-          <p class="form-note">Prefer email? Reach out directly at <a href="mailto:hello@faithgladstoneviolin.com">hello@faithgladstoneviolin.com</a>.</p>
+          <p class="form-note">Prefer email? Reach out directly at <a href="mailto:Gladstoneviolin@gmail.com">Gladstoneviolin@gmail.com</a>. <!-- TODO: confirm exact address --></p>
         </form>
       </div>
 
@@ -96,12 +85,6 @@
           <h3>Response Time</h3>
           <p>I typically respond to inquiries within 1–2 business days.</p>
         </div>
-        <div class="info-card">
-          <h3>Leave a Review</h3>
-          <p>Already worked with me? I'd love to hear about it.</p>
-          <!-- TODO: replace with real review link -->
-          <a class="btn btn-outline" href="reviews.html#leave-a-review" style="margin-top:0.5rem;">Leave a Review</a>
-        </div>
       </aside>
     </div>
   </section>
@@ -112,8 +95,9 @@
   <div class="container">
     <div class="footer-inner">
       <div>
-        <p class="footer-brand">Faith Gladstone</p>
+        <p class="footer-brand">Gladstone Violin</p>
         <p class="footer-location">Alpharetta / North Atlanta, GA</p>
+        <p class="footer-location"><a href="mailto:Gladstoneviolin@gmail.com">Gladstoneviolin@gmail.com</a></p>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
@@ -121,21 +105,19 @@
           <li><a href="weddings-events.html">Weddings &amp; Events</a></li>
           <li><a href="lessons.html">Lessons</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="repertoire.html">Repertoire</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
         <ul>
-          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="repertoire.html">Repertoire</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="reviews.html#leave-a-review">Leave a Review</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> Faith Gladstone. All rights reserved.</span>
+      <span>&copy; <span id="year"></span> Gladstone Violin. All rights reserved.</span>
       <span>Site by you.</span>
     </div>
   </div>

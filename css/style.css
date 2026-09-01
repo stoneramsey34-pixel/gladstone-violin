@@ -3,19 +3,22 @@
    Shared stylesheet
    =========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
-  --color-bg: #faf8f4;
-  --color-bg-alt: #f2efe8;
-  --color-text: #201f1d;
-  --color-text-soft: #55524c;
-  --color-accent: #6b8b7a;      /* dusty sage */
-  --color-accent-dark: #51695d;
-  --color-border: #ddd8cd;
-  --color-overlay: rgba(20, 20, 18, 0.42);
+  --color-bg: #FAF8F3;          /* soft warm ivory */
+  --color-bg-alt: #F1EFE6;      /* slightly deeper ivory for alt sections */
+  --color-card: #FFFFFF;        /* form field backgrounds */
+  --color-heading: #47564B;     /* elegant deep sage green — headings, logo, buttons */
+  --color-heading-dark: #37443B;/* darker sage — button hover / strong emphasis */
+  --color-text: #2B2B29;        /* deep charcoal — body text */
+  --color-text-soft: #6b6864;
+  --color-accent: #6E7D6F;      /* restrained muted sage — links, small details, hover */
+  --color-accent-dark: #4F5C51; /* deeper muted sage — link hover */
+  --color-border: #E3E0D4;
+  --color-overlay: rgba(28, 30, 26, 0.5);
 
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', 'Helvetica Neue', Arial, sans-serif;
 
   --max-width: 1180px;
@@ -39,10 +42,10 @@ a { color: var(--color-accent-dark); text-decoration: none; }
 a:hover, a:focus-visible { color: var(--color-accent); }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   margin: 0 0 0.6em;
-  color: var(--color-text);
+  color: var(--color-heading);
 }
 p { margin: 0 0 1.2em; }
 ul { margin: 0; padding: 0; }
@@ -95,23 +98,24 @@ button { font-family: inherit; }
 }
 .site-brand {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   letter-spacing: 0.03em;
-  color: var(--header-text, var(--color-text));
+  color: var(--header-text, var(--color-heading));
 }
 .site-brand span {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 400;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--header-text, var(--color-text-soft));
   opacity: 0.85;
-  margin-top: 0.25em;
+  margin-top: 0.3em;
 }
 .site-header.is-static .site-brand,
-.site-header.is-static .site-brand span { color: var(--color-text); }
+.site-header.is-static .site-brand span { color: var(--color-heading); }
 .site-header:not(.is-static) .site-brand,
 .site-header:not(.is-static) .site-brand span {
   color: #fff;
@@ -134,6 +138,7 @@ button { font-family: inherit; }
   flex-wrap: wrap;
 }
 .main-nav a {
+  display: inline-block;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -141,6 +146,8 @@ button { font-family: inherit; }
   color: #fff;
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 .site-header.is-static .main-nav a { color: var(--color-text); }
 .site-header.is-static .nav-toggle { color: var(--color-text); }
@@ -161,6 +168,10 @@ button { font-family: inherit; }
     padding: 5.5rem 2rem 2rem;
     transform: translateX(100%);
     transition: transform 0.35s ease;
+    z-index: 95;
+    overflow-y: auto;
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .main-nav.is-open { transform: translateX(0); }
   .main-nav ul {
@@ -241,6 +252,11 @@ button { font-family: inherit; }
 .page-hero .hero-content { padding: clamp(6rem, 14vh, 8rem) 0 clamp(2.5rem, 6vh, 3.5rem); }
 .page-hero .hero-content h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
 
+/* focal-point modifier: for portrait photos in a wide/short hero band,
+   anchors the crop lower so the subject's face/torso stays in frame
+   instead of the empty space above them */
+.hero-media.focus-lower img { object-position: center 42%; }
+
 /* -------------------- Buttons -------------------- */
 .btn {
   display: inline-block;
@@ -254,21 +270,24 @@ button { font-family: inherit; }
   transition: background 0.25s ease, color 0.25s ease;
 }
 .btn-primary {
-  background: var(--color-accent-dark);
-  border-color: var(--color-accent-dark);
+  background: var(--color-heading);
+  border-color: var(--color-heading);
   color: #fff;
 }
 .btn-primary:hover, .btn-primary:focus-visible {
-  background: transparent;
-  color: var(--color-accent-dark);
+  background: var(--color-heading-dark);
+  border-color: var(--color-heading-dark);
+  color: #fff;
 }
 .btn-light {
+  background: var(--color-heading);
   color: #fff;
-  border-color: rgba(255,255,255,0.8);
+  border-color: var(--color-heading);
 }
 .btn-light:hover, .btn-light:focus-visible {
-  background: #fff;
-  color: var(--color-text);
+  background: var(--color-heading-dark);
+  border-color: var(--color-heading-dark);
+  color: #fff;
 }
 .btn-outline {
   color: var(--color-text);
@@ -293,7 +312,7 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-accent-dark);
+  color: var(--color-accent);
   margin-bottom: 0.8em;
 }
 
@@ -379,31 +398,80 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   .photo-pair { grid-template-columns: 1fr; }
 }
 
-/* -------------------- Cards / grids -------------------- */
+/* -------------------- Video embed (weddings — "From the Field") -------------------- */
+.video-frame {
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-bg-alt);
+}
+.video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* -------------------- Info columns / pricing (no boxes — open text) -------------------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 @media (max-width: 900px) { .card-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
 
-.info-card {
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 2rem 1.75rem;
-}
 .info-card h3 { font-size: 1.2rem; }
 
-/* -------------------- Repertoire -------------------- */
-.repertoire-cat { margin-bottom: 2.5rem; }
-.repertoire-cat h3 {
-  font-size: 1.35rem;
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 0.6em;
-  margin-bottom: 1em;
+/* -------------------- Pricing (wedding packages) -------------------- */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
+@media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; } }
+.pricing-card h3 { font-size: 1.4rem; margin-bottom: 0.2em; }
+.pricing-card .price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 0.6em;
+}
+.pricing-card p { color: var(--color-text-soft); }
+
+/* -------------------- Repertoire (accordion) -------------------- */
+.repertoire-cat {
+  border-bottom: 1px solid var(--color-border);
+}
+.repertoire-cat:first-child { border-top: 1px solid var(--color-border); }
+.accordion-heading { margin: 0; }
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: none;
+  border: none;
+  padding: 1.3em 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+.accordion-toggle:hover, .accordion-toggle:focus-visible { color: var(--color-accent-dark); }
+.accordion-toggle .chevron {
+  flex-shrink: 0;
+  color: var(--color-heading);
+  transition: transform 0.3s ease;
+}
+.accordion-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.accordion-panel { overflow: hidden; }
+.accordion-panel[hidden] { display: none; }
+.accordion-panel .repertoire-list { padding: 0.2em 0 1.8em; }
 .repertoire-list { list-style: none; }
 .repertoire-list li {
   display: flex;
@@ -465,45 +533,6 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 .media-embed .embed-icon { font-size: 1.8rem; }
 .media-embed small { font-size: 0.75rem; letter-spacing: 0.04em; }
 
-/* -------------------- Testimonials -------------------- */
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-@media (max-width: 700px) { .testimonial-grid { grid-template-columns: 1fr; } }
-.testimonial-card {
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 2rem;
-  position: relative;
-}
-.testimonial-card .placeholder-flag {
-  display: inline-block;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--color-bg-alt);
-  color: var(--color-text-soft);
-  border: 1px solid var(--color-border);
-  border-radius: 2px;
-  padding: 0.25em 0.6em;
-  margin-bottom: 1.2em;
-}
-.testimonial-card blockquote {
-  margin: 0 0 1.2em;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--color-text);
-}
-.testimonial-card cite {
-  font-style: normal;
-  font-size: 0.85rem;
-  color: var(--color-text-soft);
-}
-
 /* -------------------- Forms -------------------- */
 .contact-layout {
   display: grid;
@@ -530,7 +559,7 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   padding: 0.75em 0.9em;
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  background: #fff;
+  background: var(--color-card);
   color: var(--color-text);
 }
 .form-field input:focus,
@@ -542,7 +571,7 @@ section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
 .form-field textarea { resize: vertical; min-height: 130px; }
 .form-note { font-size: 0.82rem; color: var(--color-text-soft); margin-top: 1rem; }
 
-.contact-aside .info-card { margin-bottom: 1.5rem; }
+.contact-aside .info-card { margin-bottom: 2rem; }
 .contact-aside h3 { font-size: 1.05rem; }
 
 /* -------------------- Footer -------------------- */

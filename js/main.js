@@ -37,4 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
     var href = link.getAttribute('href').split('/').pop();
     if (href === current) link.setAttribute('aria-current', 'page');
   });
+
+  // Repertoire accordion: keyboard-operable expand/collapse
+  document.querySelectorAll('.accordion-toggle').forEach(function (toggle, index) {
+    toggle.addEventListener('click', function () {
+      var panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      if (panel) panel.hidden = isOpen;
+    });
+    // First category open by default
+    if (index === 0) {
+      toggle.setAttribute('aria-expanded', 'true');
+      var panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      if (panel) panel.hidden = false;
+    }
+  });
 });
